@@ -1,0 +1,44 @@
+<html>
+<head>
+
+
+
+<script language="javascript">
+
+var password="";
+password=prompt('请输入密码（本网站需输入密码才可进入)：','');
+if (password!='admin')
+{alert("密码输入不正确，无法进入本站！！");
+window.location.href='index.html';
+
+}
+
+</script>
+
+	<title>fdf</title>
+    <style>
+		.login{
+			font-size:18px;
+		}
+		#btn{
+			cursor:pointer;
+		}
+	</style>
+</head>
+<body>
+<div class="login">
+  <p>Username:
+    <input name="username" type="text"/>
+  </p>
+  <p>
+   
+    Password:
+    <input name="password" type="text"/>
+  </p>
+  <p>
+   
+    <input name="login" type="button" value="Login" id="btn"/>
+    <a href="#"> Find back password</a></p>
+</div>
+</body>
+</html>

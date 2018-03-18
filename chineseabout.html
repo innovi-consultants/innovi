@@ -1,0 +1,332 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+<title>About</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/blue.css" rel="stylesheet" type="text/css" media="all" />
+<!----font-Awesome----->
+   	<link rel="stylesheet" href="fonts/css/font-awesome.min.css">
+<!----font-Awesome----->
+<!-- start plugins -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<!-- Owl Carousel Assets -->
+<link href="css/owl.carousel.css" rel="stylesheet">
+<script src="js/owl.carousel.js"></script>
+		<script>
+			$(document).ready(function() {
+
+				$("#owl-demo").owlCarousel({
+					items : 4,
+					lazyLoad : true,
+					autoPlay : true,
+					navigation : true,
+					navigationText : ["", ""],
+					rewindNav : false,
+					scrollPerPage : false,
+					pagination : false,
+					paginationNumbers : false,
+				});
+
+			});
+		</script>
+		<!-- //Owl Carousel Assets -->
+<!-- start circle -->
+<script>
+(function($){
+	$.fn.percentPie = function(options){
+
+		var settings = $.extend({
+			width: 100,
+			trackColor: "EEEEEE",
+			barColor: "E2534B",
+			barWeight: 30,
+			startPercent: 0,
+			endPercent: 1,
+			fps: 60
+		}, options);
+
+		this.css({
+			width: settings.width,
+			height: settings.width
+		});
+
+		var	that = this,
+			hoverPolice = false,
+			canvasWidth = settings.width,
+			canvasHeight = canvasWidth,
+			id = $('canvas').length,
+			canvasElement = $('<canvas id="'+ id +'" width="' + canvasWidth + '" height="' + canvasHeight + '"></canvas>'),
+			canvas = canvasElement.get(0).getContext("2d"),
+			centerX = canvasWidth/2,
+			centerY = canvasHeight/2,
+			radius = settings.width/2 - settings.barWeight/2;
+			counterClockwise = false,
+			fps = 1000 / settings.fps,
+			update = .01;
+			this.angle = settings.startPercent;
+
+		this.drawArc = function(startAngle, percentFilled, color){
+			var drawingArc = true;
+			canvas.beginPath();
+			canvas.arc(centerX, centerY, radius, (Math.PI/180)*(startAngle * 360 - 90), (Math.PI/180)*(percentFilled * 360 - 90), counterClockwise);
+			canvas.strokeStyle = color;
+			canvas.lineWidth = settings.barWeight;
+			canvas.stroke();
+			drawingArc = false;
+		}
+
+		this.fillChart = function(stop){
+			var loop = setInterval(function(){
+				hoverPolice = true;
+				canvas.clearRect(0, 0, canvasWidth, canvasHeight);
+
+				that.drawArc(0, 360, settings.trackColor);
+				that.angle += update;
+				that.drawArc(settings.startPercent, that.angle, settings.barColor);
+
+				if(that.angle > stop){
+					clearInterval(loop);
+					hoverPolice = false;
+				}
+			}, fps);
+		}
+
+		this.mouseover(function(){
+			if(hoverPolice == false){
+				that.angle = settings.startPercent;
+				that.fillChart(settings.endPercent);
+			}
+		});
+
+		this.fillChart(settings.endPercent);
+		this.append(canvasElement);
+		return this;
+	}
+}(jQuery));
+
+$(document).ready(function() {
+
+	$('.google').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent:1.0,
+		fps: 60
+	});
+  
+  $('.moz').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "76C7C0",
+		barWeight: 20,
+		endPercent: .8,
+		fps: 60
+	});
+  
+  $('.safari').percentPie({
+		width: 100,
+		trackColor: "E2534B",
+		barColor: "#76C7C0",
+		barWeight: 20,
+		endPercent: .4,
+		fps: 60
+	});
+    
+});
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+body,td,th {
+	font-family: Verdana, Geneva, sans-serif;
+}
+</style>
+</head>
+<body>
+<div class="header_bg">
+<div class="container">
+	<div class="header">
+		<div class="logo">
+			<a href="index.html"><img src="images/innovi logo.png" alt="" width="304" height="89"/></a>
+		</div>
+		<div class="h_menu">
+		<a id="touch-menu" class="mobile-menu" href="#">菜单</a>
+		<nav>
+		<ul class="menu list-unstyled">
+			<li><a href="chineseindex.html">主页</a></li>
+			<li class="activate"><a href="chineseabout.html">关于我们</a></li>
+			<li><a href="chineseservice.html">服务</a></li>
+			<li><a href="chineseresearch.html">新闻报告</a></li>
+			<li><a href="index.html">ENGLISH</a></li>
+			<li><a href="chinesecontact.html">联系我们</a></li>
+		</ul>
+		</nav>
+		<script src="js/menu.js" type="text/javascript"></script>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="main_bg"><!-- start main -->
+<div class="container">
+	<div class="main_grid1">
+		<h3 class="style pull-left">关于我们</h3>
+		<ol class="breadcrumb pull-right">
+		  <li><a href="index.html">主页</a></li>
+		  <li class="active">关于我们</li>
+		</ol>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+<div class="main_btm1"><!-- start main_btm -->
+<div class="container">
+	<div class="main about span_of_3">
+		<h3>因诺威致力于为创业团队提供综合咨询服务</h3>
+  <p class="para">在这一迅速变革的时代，创业者们面临着许许多多难解的问题。这些问题困扰并分散了创业者本应集中于产品和服务本身的精力。时不我待，一旦慢对手一拍，留给创业者的将是满盘皆输的结局。因此，我们的咨询服务为创业者们的需求量身定做，力图解决创业者在创业过程中可能遇到的有关商业模式、投融资对接、工商注册、法务财务等一系列问题。由此创业者可以集中精力于其伟大的构想，通往成功之路。</p>
+		<div class="col-md-3 span1_of_3">
+		  <h4><br>
+	      我们的团队</h4>
+			<ul class="list-unstyled nav_list">
+            <li><a href="#"><strong>叶梦真: </strong>普通合伙人（主管项目管理部门） 北京大学金融学硕士、香港中文大学经济学硕士</a></li>
+            <li><a href="#"><strong>杜雨: </strong>执行合伙人（主管商务管理部门） 北京大学金融学硕士、香港中文大学经济学硕士 曾就职于国泰君安、摩根士丹利、德勒咨询、腾讯。</a>
+            <li><a href="#"><strong>佘炀杰:</strong> 执行合伙人（主管财务咨询部门） 北京大学金融学硕士、香港中文大学经济学硕士 曾就职于国泰君安、毕马威。</a></li>
+			</ul>
+		</div>	
+		<div class="col-md-6 span1_of_3">
+			<p class="para"><span id="tran_0" data-aligning="#tran_0,#src_0">因诺威创立至今,我们赢得了很多荣誉，建立起了一个高效的团队。</span><span id="tran_1" data-aligning="#tran_1,#src_1">此外,我们得到了众多的投资者和教授的支持。</span><span id="tran_2" data-aligning="#tran_2,#src_2">现在我们40%的合作伙伴在运作企业孵化器。我们</span><span id="tran_3" data-aligning="#tran_3,#src_3">80%的客户成功地获得了融资。</span></p>
+				<!-- start circle -->
+			  <ul class="list-unstyled circle_list">
+					<li>
+						<div class="safari chart">
+						  <div class="tag">40%</div>
+						</div>			
+						<h4 class="style">企业孵化器</h4>			
+					</li>
+					<li>
+						<div class="moz chart">
+						  <div class="tag">80%</div>
+						</div>			
+						<h4 class="style">获得融资</h4>			
+					</li>
+					<li>
+						<div class="google chart">
+						  <div class="tag">100%</div>
+						</div>	
+						<h4 class="style">顶尖大学</h4>					
+					</li>
+				</ul>
+				<!-- end circle -->
+		</div>	
+		<div class="col-md-3 span1_of_3">
+			<h4><br>
+		    我们的团队</h4>
+            <ul class="list-unstyled nav_list">
+            <li><a href="#"><strong>朱运: </strong>执行合伙人（主管战略研究部门） 北京大学金融学硕士、香港中文大学经济学硕士 曾就职于波士顿咨询、中信证券、民生证券。</a></li>
+            <li><a href="#"><strong>俞洁: </strong>执行合伙人（主管商务管理部门） 北京大学金融学硕士、香港中文大学经济学硕士 曾就职于中信证券、民生银行。<br>
+            </a></li>
+            <li></li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+	<div class="cursual"><!--  start cursual  -->
+		<h4>我们的合作伙伴<span class="line"></span></h4>
+	</div>
+	<div id="owl-demo" class="owl-carousel"><!----start-img-cursual---->
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c1.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c2.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c3.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c1.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c2.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c3.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c1.png" alt="Lazy Owl Image">
+			</div>
+		</div>	
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c4.png" alt="Lazy Owl Image">
+			</div>
+		</div>	
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c1.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c2.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c3.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c1.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+		<div class="item">
+			<div class="cau_left">
+				<img class="lazyOwl" data-src="images/c2.png" alt="Lazy Owl Image">
+			</div>
+		</div>
+	</div><!----//End-img-cursual---->
+</div>
+</div>
+
+<div class="footer1_bg"><!-- start footer1 -->
+<div class="container">
+	<div class="footer1">
+		<div class="copy pull-left">
+			<p class="link">Copyright &copy; 2014.Innovi Entrepreneurial Management Consulting All rights reserved.</a></p>
+		</div>
+		<div class="soc_icons pull-right">
+			<ul class="list-unstyled text-center">
+				<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+				<li><a href="#"><i class="fa fa-rss"></i></a></li>
+			</ul>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+</div>
+
+</body>
+</html>
